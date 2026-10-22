@@ -1,0 +1,29 @@
+---
+title: "Brain Data Analysis"
+author: "Sachi Vats"
+---
+
+Calculating the total number of genes with regionally elevated expression in the forebrain (cerebral cortex, basal ganglia, thalamus and hypothalamus) regions in human, pig and mouse
+
+# Human
+
+```{r}
+elevated_genes_human <- sum(180, 83, 57, 110)
+print(elevated_genes_human)
+```
+
+# Pig
+
+```{r}
+elevated_genes_pig <- sum(109, 157, 31, 45)
+print(elevated_genes_pig)
+```
+
+# Mouse
+
+```{r}
+elevated_genes_mouse <- sum(55, 185, 60, 98)
+print(elevated_genes_mouse)
+```
+
+Humans had the highest number of genes elevated in the forebrain (430 genes)
