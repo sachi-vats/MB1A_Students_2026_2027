@@ -3,6 +3,13 @@ title: "Practical 1 Exercises"
 author: "Sachi Vats"
 ---
 
+## Installing tidyverse package
+```{r}
+library (tidyverse)
+library(gt)
+```
+
+
 ## Exercise 1 - using rep()
 ```{r}
 # by specifying arguments in order
@@ -26,3 +33,62 @@ print(class(a_string))
 print(class(an_integer))
 print(class(a_boolean))
 ```
+
+## Exercise 3 - Vectors
+```{r}
+# Assigning variables
+cell_id_1 <- "CX1"
+cell_id_2 <- "CX2"
+treated_1 <- TRUE
+treated_2 <- FALSE
+num_cells_before_1 <- 5415
+num_cells_before_2 <- 8123
+num_cells_after_1 <- 1432
+num_cells_after_2 <- 7543
+
+# moving into vector
+cell_id = c(cell_id_1, cell_id_2)
+treated_bool = c(treated_1, treated_2)
+n_cells_before = c(num_cells_before_1, num_cells_before_2)
+n_cells_after = c(num_cells_after_1, num_cells_after_2)
+
+print(cell_id)
+print(treated_bool)
+print(n_cells_before)
+print(n_cells_after)
+```
+
+## Exercise 4 - Accessing Elements of a Vector
+```{r}
+all_my_pets <- c("dog", "horse", "guinea pig", "chicken", "cat")
+print(all_my_pets[4])
+```
+
+## Exercise 5 - Data Frames
+```{r}
+# Assigning variables
+cell_id_1 <- "CX1"
+cell_id_2 <- "CX2"
+treated_1 <- TRUE
+treated_2 <- FALSE
+num_cells_before_1 <- 5415
+num_cells_before_2 <- 8123
+num_cells_after_1 <- 1432
+num_cells_after_2 <- 7543
+
+# moving into vector
+cell_id = c(cell_id_1, cell_id_2)
+treated_bool = c(treated_1, treated_2)
+n_cells_before = c(num_cells_before_1, num_cells_before_2)
+n_cells_after = c(num_cells_after_1, num_cells_after_2)
+
+my_data_frame <- tibble (
+  id = cell_id,
+  treated = treated_bool,
+  num_cells_before = n_cells_before,
+  num_cells_after = n_cells_after,
+)
+
+gt(my_data_frame)
+```
+
