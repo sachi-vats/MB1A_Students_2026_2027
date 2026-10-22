@@ -1,0 +1,28 @@
+---
+title: "Practical 1 Exercises"
+author: "Sachi Vats"
+---
+
+## Exercise 1 - using rep()
+```{r}
+# by specifying arguments in order
+print(rep(5, 7))
+```
+
+```{r}
+# by using argument names
+print (rep(x = 5, times = 7))
+```
+
+## Exercise 2 - Variable Types
+```{r}
+# assigning variables
+a_string <- "Hello world!"
+an_integer <- 5
+a_boolean <- TRUE
+
+#printing class of variables
+print(class(a_string))
+print(class(an_integer))
+print(class(a_boolean))
+```
