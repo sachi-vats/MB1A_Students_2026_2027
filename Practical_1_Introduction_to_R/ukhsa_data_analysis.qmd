@@ -1,0 +1,28 @@
+---
+title: "UKHSA Data Analysis"
+author: "Sachi Vats"
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+```
+
+## Visualizing access antibiotic data from UKHSA dashboard
+```{r}
+antibiotics <- read_csv("data/ukhsa-chart-download.csv")
+gt(head(antibiotics))
+```
+
+```{r}
+ggplot (antibiotics, aes(
+  x = date,
+  y = metric_value
+)) +
+  geom_line(colour = "blue") +
+  xlab("Date") +
+  ylab("DID (Standardised Consumption") +
+  ggtitle("Access Antibiotics") +
+  ylim (0, 20)
+```
+

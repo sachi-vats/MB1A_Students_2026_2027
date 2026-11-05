@@ -91,4 +91,3 @@ my_data_frame <- tibble (
 
 gt(my_data_frame)
 ```
-
