@@ -1,0 +1,58 @@
+---
+title: "Squirrels Simulation"
+author: "Sachi Vats"
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+library(cowsay)
+set.seed(42)
+```
+
+## Simulating squirrel stealing
+```{r}
+squirrel_stealing <- sample(c("success", "failure"),
+  size = 150,
+  replace = TRUE,
+  prob = c(0.3, 0.7)
+)
+n_successes <- sum(squirrel_stealing == "success")
+say(paste("I was successful", n_successes, "times!"), by = "squirrel")
+```
+
+## Repeating simulations
+```{r}
+combined_successes <- c()
+for (i in seq_len(1000)) {
+  is_success <- sample(c("SUCCESS", "FAILURE"),
+    size = 150,
+    replace = TRUE,
+    prob = c(0.3, 0.7)
+  )
+  n_successes <- sum(is_success == "SUCCESS")
+  combined_successes <- c(combined_successes, n_successes)
+}
+print(combined_successes)
+```
+
+```{r}
+df_squirrels <- tibble("N_Successful_Heists" = combined_successes)
+gt(head(df_squirrels))
+```
+
+# Plotting combined success
+```{r}
+ggplot(
+  df_squirrels,
+  aes(
+    x = N_Successful_Heists
+  )
+) +
+  geom_bar() +
+  ggtitle("Number of Successful Heists per Squirrel - Simulated") +
+  xlab("Number of successful heists") +
+  ylab("Number of squirrels") +
+  theme_minimal()
+```
+

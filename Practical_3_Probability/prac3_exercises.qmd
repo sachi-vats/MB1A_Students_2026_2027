@@ -1,0 +1,43 @@
+---
+title: "Practical 3"
+author: "Sachi Vats"
+---
+
+```{r}
+library(tidyverse)
+library(gt)
+set.seed(42)
+```
+
+## For loop to calculate cube of numbers up to 20
+```{r}
+for (i in seq_len(20)) {
+  cube <- i^3
+  print (cube)
+}
+```
+
+## Generating 5 random 5 letter strings
+```{r}
+for (i in seq_len(5)) {
+  random_string <- paste(sample(letters, 5, replace = TRUE), collapse="")
+  print (random_string)
+}
+```
+
+## Building a 10-course breakfast
+```{r}
+breakfast <- c("eggs", "bacon", "sausages", "toast")
+breakfast_df <- tibble()
+for (i in seq_len(10)) {
+  item <- sample(breakfast, size = 1)
+  count <- sample(1:5, 1)
+  current_row <- tibble (
+    item = item,
+    count = count
+  )
+  breakfast_df <- breakfast_df |> bind_rows(current_row)
+}
+gt(breakfast_df)
+```
+
